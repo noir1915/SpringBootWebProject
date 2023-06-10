@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet id="product-table" author="d.berlov">
+        <createTable tableName="product" schemaName="public">
+            <column name="id" autoIncrement="true" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="product_title" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_type" type="varchar(70)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="written_program" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+            <column name="material_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="end_date" type="timestamp">
+                <constraints nullable="true"/>
+            </column>
+            <column name="preparation" type="varchar(70)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="technologist_id" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint deleteCascade="true" baseTableName="product" baseColumnNames="material_id"
+                                 referencedTableName="material" referencedColumnNames="id" constraintName="material_fk"/>
+        <addForeignKeyConstraint deleteCascade="true" baseTableName="product" baseColumnNames="technologist_id"
+                                 referencedTableName="technologist" referencedColumnNames="id" constraintName="technologist_fk"/>
+    </changeSet>
+
+</databaseChangeLog>

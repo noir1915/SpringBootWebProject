@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet id="order_item-table" author="d.berlov">
+        <createTable tableName="order_item" schemaName="public">
+            <column name="id" autoIncrement="true" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="quantity" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price" type="Decimal">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price_per_product" type="Decimal">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="order_id" type="bigint">
+                <constraints foreignKeyName="order_item_order_id_fk" references="order(id)"/>
+            </column>
+
+            <column name="product_id" type="bigint">
+                <constraints deleteCascade="true" foreignKeyName="order_item_product_id_fk" references="product(id)"/>
+            </column>
+
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
