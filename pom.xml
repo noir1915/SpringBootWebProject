@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.aston</groupId>
-    <artifactId>south-park</artifactId>
+    <artifactId>SpringBootWebProject</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>south-park</name>
-    <description>South-park project for Aston trainee</description>
+    <name>SpringBootWebProject</name>
+    <description>SpringBootWebProject</description>
     <properties>
         <java.version>11</java.version>
         <maven.compiler.source>11</maven.compiler.source>
